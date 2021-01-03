@@ -13,17 +13,17 @@ app.listen(3000);
 //As we don't send the response, so this is supposed to continue the file
 //But the problem is that after executing the middleware, the browser doesn't know what to do next
 //so we guide him using next(), which simply means continue your work
-app.use((req,res , next)=>{
+app.use((req, res, next) => {
   console.log('new request made');
-  console.log( 'host: ' , req.hostname);
-  console.log('path: ',req.hostpath);
-  console.log('method: ',req.method);
+  console.log('host: ', req.hostname);
+  console.log('path: ', req.hostpath);
+  console.log('method: ', req.method);
   next();
 })
 
 
 
-app.use((req,res , next)=>{
+app.use((req, res, next) => {
   console.log('the next middleware');
   next();
 })
@@ -60,9 +60,9 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   const blogs = [
-    {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+    { title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+    { title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+    { title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur' },
   ];
   res.render('index', { title: 'Home', blogs });
 });
